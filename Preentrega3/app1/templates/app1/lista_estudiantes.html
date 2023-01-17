@@ -6,6 +6,7 @@
 {% block contenido %}
 
 <h1 class="titulos-coder">Lista de estudiantes</h1>
+<a href="{% url 'crear_estudiante' %}">Añadir</a>
 <ul>
 {% for student in estudiantes %}
   <li>{{ student.apellido }}, {{ student.nombre }}</li>

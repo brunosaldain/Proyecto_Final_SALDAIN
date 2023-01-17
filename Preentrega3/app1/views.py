@@ -2,8 +2,16 @@ from django.shortcuts import render, redirect
 from app1.models import Profesor, Curso, Estudiante
 from app1.forms import CursoFormulario, EstudianteFormulario, ProfesorFormulario
 from django.urls import reverse
+from django.db.models import Q
+from django.http import HttpResponse
 
 # Create your views here.
+def inicio(request):
+    return render(
+        request=request,
+        template_name='app1/inicio.html',
+    )
+
 def listar_estudiantes(request):
     ## Aqui iria la validacion del permiso lectura estudiantes
     contexto = {
@@ -90,3 +98,17 @@ def crear_profesor(request):
         template_name='app1/form_profesor.html',
         context={'formulario': formulario},
     )
+
+def buscar_curso(request):
+    return render(request, 'app1/buscar_curso.html')
+
+def buscar(request):
+    if request.GET['comision']:
+        comision = request.GET['comision']
+        cursos = Curso.objects.filter(Q(comision__contains=comision))
+        return render(request, 'app1/resultadosBusqueda.html', {'cursos':cursos, 'comision':comision})
+    else:
+        respuesta = "No enviaste datos"
+
+    #respuesta = f"estoy buscando la comision {request.GET['comision']}"
+    return HttpResponse(respuesta)
