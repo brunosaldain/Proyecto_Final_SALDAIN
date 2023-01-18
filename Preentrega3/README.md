@@ -26,19 +26,14 @@ _Solamente en la seccion Cursos se puede realizar una busqueda por numero de com
 
 ## Construido con 🛠️
 
-_Menciona las herramientas que utilizaste para crear tu proyecto_
-
 * [Django](https://www.djangoproject.com/) - El framework web usado
 * [Bootstrap](https://getbootstrap.com/) - Libreria HTML y CSS
 
 ## Autor ✒️
 
-_Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios_
-
 * **Bruno Saldain** - *Trabajo Inicial y Doc* - [brunosaldain](https://github.com/brunosaldain)
 
 ## Expresiones de Gratitud 🎁
 
-* Comenta a otros sobre este proyecto 📢
 * Gracias a los profesores y tutores de la comision 47635 de Python 😊
 
