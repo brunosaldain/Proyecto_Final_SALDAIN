@@ -1,0 +1,17 @@
+{% extends "app1/base.html" %}
+
+{% block subtitulo %}Lista de cursos{% endblock subtitulo %}
+
+{% block contenido %}
+<h1>Lista de cursos</h1>
+<a href="{% url 'crear_curso' %}">Añadir</a>
+<br>
+<a href="{% url 'buscar_curso' %}">Buscar Comision por numero</a>
+
+
+<ul>
+{% for curso in cursos %}
+  <li>{{ curso.nombre }}, {{ curso.comision }}</li>
+{% endfor %}
+</ul>
+{% endblock contenido %}

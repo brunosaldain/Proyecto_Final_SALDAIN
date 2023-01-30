@@ -1,0 +1,11 @@
+{% extends "app1/base.html" %}
+
+{% block contenido %}
+<h3>Ingrese numero de comision a buscar</h3>
+<form action='/buscar/' method='GET'>
+    <input type='number' name='comision' id='comision'>
+    <input type='submit' value='Buscar'>
+
+
+</form>
+{% endblock contenido %}
