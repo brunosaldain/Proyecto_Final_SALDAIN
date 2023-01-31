@@ -4,24 +4,24 @@ from app1.forms import CursoFormulario, EstudianteFormulario, ProfesorFormulario
 from django.urls import reverse
 from django.db.models import Q
 from django.http import HttpResponse
+from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 
 # Create your views here.
-def inicio(request):
-    return render(
-        request=request,
-        template_name='app1/inicio.html',
-    )
 
-def listar_estudiantes(request):
-    ## Aqui iria la validacion del permiso lectura estudiantes
-    contexto = {
-        'estudiantes': Estudiante.objects.all()
-    }
-    return render(
-        request=request,
-        template_name='app1/lista_estudiantes.html',
-        context=contexto,
-    )
+
+# # def listar_estudiantes(request):
+# #     ## Aqui iria la validacion del permiso lectura estudiantes
+# #     contexto = {
+# #         'estudiantes': Estudiante.objects.all()
+# #     }
+# #     return render(
+# #         request=request,
+# #         template_name='app1/lista_estudiantes.html',
+# #         context=contexto,
+#     )
+class EstudianteListView(ListView):
+    model = Estudiante
+    template_name = 'app1/lista_estudiantes.html'
 
 
 def listar_profesores(request):

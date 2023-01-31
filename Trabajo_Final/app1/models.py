@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import date
 
 # Create your models here.
 class Profesor(models.Model):
@@ -27,3 +28,4 @@ class Entregable(models.Model):
     nombre = models.CharField(max_length=256)
     fecha_entrega = models.DateTimeField()
     esta_entregado = models.BooleanField(default=False)
+

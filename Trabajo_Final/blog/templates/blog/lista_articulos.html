@@ -1,0 +1,26 @@
+{% extends "blog/base.html" %}
+
+{% block subtitulo %}Lista de cursos{% endblock subtitulo %}
+
+{% block contenido %}
+<h1>Lista de articulos</h1>
+<a href="{% url 'crear_articulo' %}">Añadir</a>
+
+
+
+<ul>
+{% if object_list|length == 0 %}
+No hay entradas aun
+{% else %}
+  {% for articulo in object_list %}
+    <li>{{ articulo.titulo }}, {{ articulo.autor }}</li>
+    <a href="{% url 'ver_articulo' articulo.id %}">Leer Mas</a>
+    <a href="{% url 'editar_articulo' articulo.id %}">Editar</a>
+    <form action="{% url 'eliminar_articulo' articulo.id %}" method="post">
+      {% csrf_token %}
+      <input type="submit" value="eliminar"/>
+    </form
+  {% endfor %}
+{% endif %}
+</ul>
+{% endblock contenido %}

@@ -1,0 +1,10 @@
+from django import forms
+
+class ArticuloBlogFormulario(forms.Form):
+    titulo = forms.CharField(max_length=256)
+    subtitulo = forms.CharField(max_length=256)
+    cuerpo = forms.TextField()
+    autor = forms.CharField(max_length=256)
+    fecha = forms.DateTimeField()
+    #imagen = forms.ImageField(upload_to='media/')
+
