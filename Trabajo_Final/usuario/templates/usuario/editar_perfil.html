@@ -1,0 +1,32 @@
+{% extends "blog/base.html" %}
+
+{% block subtitulo %}Editar Perfil{% endblock subtitulo %}
+
+{% block contenido %}
+<h1>Editar perfil de {{usuario}}</h1>
+
+<img src="{{ user.avatar.imagen.url }}" style="width:50px;"/>
+<br>
+
+    
+    <a href="{% url 'editar_avatar' %}"><strong>Cambiar Avatar</strong></a>
+
+<br><a href="{% url 'agregar_avatar' %}"><strong>Agregar Avatar</strong></a>
+    
+
+
+<form action="" method="POST">{% csrf_token %}
+
+    
+    
+    <table>
+
+        {{ miFormulario.as_table }}
+
+    </table>
+
+    <input type="submit", value="Enviar">
+
+</form> 
+
+{% endblock contenido %}

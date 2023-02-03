@@ -1,6 +1,6 @@
-# Tercera Preentrega Curso Python - Bruno Saldain
+# Trabajo Final Curso Python - Bruno Saldain
 
-_Web Django simulando una plataforma educativa tipo Coderhouse_
+_Web Django simulando un Blog_
 
 ### Pre-requisitos 📋
 
@@ -12,22 +12,28 @@ python3 -m venv NOMBRE_AMBIENTE
 source NOMBRE_AMBIENTE/bin/activate
 pip install Django
 ```
+_Para instalar las dependencias necesarias, corra el siguiente comando_
 
-### Pruebas 🔧
+```
+pip install -r requirements.txt
+```
+
+### Funcionamiento 🔧
 _Corra el servidor web Django con el siguiente comando_
 
 ```
 python3 manage.py runserver
 ```
-_Se puede acceder a las secciones Estudiantes, Profesores y Cursos desde la barra de navegacion. Primeramente veremos una lista de los objetos de cada clase alojados en la base de datos y la posibilidad de agregar nuevos_
+_Desde el home, puede crear un usuario desde el boton Registrese. Se puede acceder a la lista de articulos libremente, pero para crearlos es necesario crear un usuario_
 
-_Solamente en la seccion Cursos se puede realizar una busqueda por numero de comision_
+### Unit Test 🔧
 
+_Encontrara un archivo con las unit test realizadas de manera manual. El mismo se denomina "Casos de prueba SALDAIN.xlsx"_
 
 ## Construido con 🛠️
 
 * [Django](https://www.djangoproject.com/) - El framework web usado
-* [Bootstrap](https://getbootstrap.com/) - Libreria HTML y CSS
+* [Bootstrap](https://getbootstrap.com/) - Libreria HTML y
 
 ## Autor ✒️
 
@@ -35,5 +41,5 @@ _Solamente en la seccion Cursos se puede realizar una busqueda por numero de com
 
 ## Expresiones de Gratitud 🎁
 
-* Gracias a los profesores y tutores de la comision 47635 de Python 😊
+* Gracias a los profesores, tutores y compañeros de la comision 47635 de Python 😊
 

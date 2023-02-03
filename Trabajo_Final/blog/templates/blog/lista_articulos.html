@@ -3,24 +3,38 @@
 {% block subtitulo %}Lista de cursos{% endblock subtitulo %}
 
 {% block contenido %}
-<h1>Lista de articulos</h1>
-<a href="{% url 'crear_articulo' %}">Añadir</a>
+<h1 style="text-align:center;">Lista de articulos</h1>
+
+<p style="text-align:center;"><a class="btn btn-primary" href="{% url 'crear_articulo' %}">Añadir Articulo</a></p>
 
 
+<table class="table">
+  <tbody>
+    <tr>
+      <th>Titulo</th>
+      <th>Subtitulo</th>
+      <th>Autor</th>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    {% for articulo in object_list %}
+    <tr>
+      <td>{{ articulo.titulo }}</td>
+      <td>{{ articulo.subtitulo }}</td>
+      <td>{{ articulo.autor }}</td>
+      <td>
+        <a href="{% url 'ver_articulo' articulo.id %}">Ver</a>
+      </td>
+      <td>
+        <a href="{% url 'editar_articulo' articulo.id %}">Editar</a>
+      </td>
+      <td>
+        <a href="{% url 'eliminar_articulo' articulo.id %}">Eliminar</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 
-<ul>
-{% if object_list|length == 0 %}
-No hay entradas aun
-{% else %}
-  {% for articulo in object_list %}
-    <li>{{ articulo.titulo }}, {{ articulo.autor }}</li>
-    <a href="{% url 'ver_articulo' articulo.id %}">Leer Mas</a>
-    <a href="{% url 'editar_articulo' articulo.id %}">Editar</a>
-    <form action="{% url 'eliminar_articulo' articulo.id %}" method="post">
-      {% csrf_token %}
-      <input type="submit" value="eliminar"/>
-    </form
-  {% endfor %}
-{% endif %}
-</ul>
 {% endblock contenido %}

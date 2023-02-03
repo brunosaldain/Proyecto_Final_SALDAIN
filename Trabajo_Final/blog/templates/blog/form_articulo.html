@@ -3,9 +3,10 @@
 {% block subtitulo %}Crear Articulo Nuevo{% endblock subtitulo %}
 
 {% block contenido %}
-<form method="post">
+<form method="post" style="text-align:center;">
   {% csrf_token %}
   {{ form.as_p }}
+  {{form.media | safe }}
   <input type="submit" value="Enviar" />
 </form>
 {% endblock contenido %}

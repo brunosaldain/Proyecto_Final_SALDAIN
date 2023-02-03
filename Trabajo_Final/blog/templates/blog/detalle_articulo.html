@@ -3,16 +3,35 @@
 {% block subtitulo %}Detalle del Articulo{% endblock subtitulo %}
 
 {% block contenido %}
-<h4>Titulo: {{object.titulo}}</h4>
+<article>
+  <section>
+<h2 style="text-align: center">Titulo: {{object.titulo}}</h2>
+</section>
+<br>
+<section>
+{% if object.imagen.url != Null %}
+<p style="text-align:center;"><img src= "{{object.imagen.url}}" style="100px;" /></p>
+{% else %}
+{% endif %}
+</section>
+<br>
+<section>
 <span>
-  <b>Subtitulo:</b> {{object.subtitulo}}
+  <h3 style="text-align: center">Subtitulo: {{object.subtitulo}}</h3>
+</section>
 </span>
+<section>
 <br>
-Contenido: {{object.cuerpo}}
+<p style="text-align:center;">{{object.cuerpo | safe }}</p>
+</section>
 <br>
-AUTOR: {{object.autor}}
+<section>
+<h6 style="text-align:center;font-style:italic">AUTOR: {{object.autor}} </h6>
+</section>
 <br>
+</article>
 
-<a href="{% url 'listar_articulos' %}">Volver a la lista</a>
+
+<p style="text-align:center;"><a class="btn btn-primary" href="{% url 'listar_articulos' %}">Volver a la lista</a></p>
 
 {% endblock contenido %}

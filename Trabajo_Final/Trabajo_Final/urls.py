@@ -15,11 +15,10 @@ Including another URLconf
 """
 from django.conf import settings
 from django.contrib import admin
-from django.urls import path
-from Trabajo_Final.views import saludo
-from app1.views import listar_profesores, listar_cursos, crear_curso, crear_estudiante, crear_profesor, buscar_curso, buscar,  EstudianteListView
+from django.urls import path, include, re_path
+
 from blog.views import about_me, ArticuloListView, ArticuloCreateView, ArticuloDetailView, ArticuloDeleteView, ArticuloUpdateView, inicio
-from usuario.views import login_view, registro
+from usuario.views import login_view, registro, editarPerfil, editar_avatar, PerfilDetailView, agregar_avatar
 from django.conf.urls.static import static
 from django.contrib.auth.views import LogoutView
 
@@ -28,16 +27,6 @@ from django.contrib.auth.views import LogoutView
 urlpatterns = [
     path('', inicio, name='inicio'),
     path('admin/', admin.site.urls),
-    path('saludo/', saludo),
-    path('profesores/', listar_profesores, name="listar_profesores"),
-    path('estudiantes/', EstudianteListView.as_view(), name="listar_estudiantes"),
-    path('cursos/', listar_cursos, name="listar_cursos"),
-    path('cursoFormulario/', crear_curso, name="crear_curso"),
-    path('estudianteFormulario/', crear_estudiante, name="crear_estudiante"),
-    path('profesorFormulario/', crear_profesor, name="crear_profesor"),
-    path('buscarCurso/', buscar_curso, name="buscar_curso"),
-    path('buscar/', buscar, name="buscar"),
-    
     #blog
     path('about/', about_me, name="about_me"),
     path('pages/', ArticuloListView.as_view(), name="listar_articulos"),
@@ -48,7 +37,13 @@ urlpatterns = [
     #usuarios
     path('login/', login_view, name="login"),
     path('register/', registro, name='register'),
-    path('logout', LogoutView.as_view(template_name='usuario/logout.html'), name='logout')
+    path('logout', LogoutView.as_view(template_name='usuario/logout.html'), name='logout'),
+    path('editarPerfil/', editarPerfil, name="editar_perfil"),
+    path('editar-avatar/', editar_avatar, name="editar_avatar"),
+    path('agregar-avatar/', agregar_avatar, name="agregar_avatar"),
+    path('perfil/<int:pk>', PerfilDetailView.as_view(), name="ver_perfil"),
+    re_path(r'^ckeditor/', include('ckeditor_uploader.urls')), # The CKEditor path
+
 
 
 
