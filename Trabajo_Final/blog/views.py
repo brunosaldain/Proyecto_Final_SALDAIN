@@ -46,4 +46,5 @@ class ArticuloDetailView(DetailView):
 
 class ArticuloDeleteView(LoginRequiredMixin, DeleteView):
     model = ArticuloBlog
+    template_name = "blog/confirmar_eliminacion.html"
     success_url = reverse_lazy('listar_articulos')
